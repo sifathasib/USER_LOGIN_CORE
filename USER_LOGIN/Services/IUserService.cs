@@ -5,6 +5,6 @@ namespace USER_LOGIN.Services
     public interface IUserService
     {
         
-        Task<Users> ValidateUserAsync(LoginModel userLogin);
+        Task<String> ValidateUserAsync(LoginModel userLogin);
     }
 }

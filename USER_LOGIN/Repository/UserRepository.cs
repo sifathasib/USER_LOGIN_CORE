@@ -35,6 +35,7 @@ namespace USER_LOGIN.Repository
             {
                 user.UserId = result.Rows[0]["USER_ID"].ToString();
                 user.Password = result.Rows[0]["PASSWORD"].ToString();
+                user.Username = result.Rows[0]["USERNAME"].ToString();
                 user.isSuccess = true;
                 user.Message = "Login successful";
             }else{

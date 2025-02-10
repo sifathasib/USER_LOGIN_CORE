@@ -22,13 +22,11 @@ namespace USER_LOGIN.Controllers
             {
                 return BadRequest(new { Message = "Username and password cannot be empty" });
             }
-            var user = await _userService.ValidateUserAsync(userLogin);
+            var token = await _userService.ValidateUserAsync(userLogin);
             
-            if (user.isSuccess==true)
-            {
-                return Ok(new { Message = user.Message });
-            }
-            return Unauthorized(new { Message = user.Message });
+            if (token == null)
+                return Unauthorized(new { Message = "Invalid username or password" });
+            return Ok(new { Token = token });
         }
     }
 
